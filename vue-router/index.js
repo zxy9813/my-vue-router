@@ -1,5 +1,5 @@
 import install from '../vue-router/install'
-import createMatcher from 
+import createMatcher from '../create-matcher'
 class VueRouter{
     constructor(options){
         // 创建匹配器的过程 1.匹配功能 2.可以添加匹配
@@ -8,7 +8,7 @@ class VueRouter{
     }
     init(app) { // 目前这个app指代的就是最外层new Vue
         // 需要根据用户配置 做一个映射表来
-
+console.log(app,'app');
     }
 }
 VueRouter.install = install;
