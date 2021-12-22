@@ -23,6 +23,9 @@ const install = function (_Vue) {
                 this._router = this.$options.router;
                 // 用户传来的属性router 而router = new VueRouter 所以router.init是调用VueRouter里的方法
                 this._router.init(this);
+                // 用什么才使current普通值改变时 引发视图改变呢？，$set只是增加一个属性，defineObjectProperty只是多了get set
+                // 可以使用Vue.util.directive  defineReactive可以做到 自动依赖收集，并且可以把对象转成响应式
+                Vue.util.defineReactive(this,'_route',this._router.history.current);
             }else {
                 // 子组件
                 this._routerRoot = this.$parent && this.$parent._routerRoot;

@@ -3,7 +3,8 @@ const addRouteRecord = (route, pathList, pathMap,parentRecord) => {
     
     let record = { //根据当前路由产生一个记录
         path,
-        component:route.component
+        component:route.component,
+        parent:parentRecord
     }
     if(!pathMap[path]) { // 防止用户编写路由时有重复的，不去覆盖
 
@@ -19,7 +20,6 @@ const addRouteRecord = (route, pathList, pathMap,parentRecord) => {
 }
 
 function createRouteMap (routes,oldPathList,oldPathMap) {
-    debugger
     let pathList = oldPathList || [];
     let pathMap = oldPathMap || {};
 
